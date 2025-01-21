@@ -12,7 +12,13 @@ struct ProductView: View {
     var body: some View {
         NavigationStack{
             List(viewModel.products){ product in
-                ProductRowView(product: product)
+                NavigationLink {
+                    ProductDetailsView(product: product)
+                } label: {
+                    ProductRowView(product: product)
+                }
+
+               
                 
             }.listStyle(.plain)
             .navigationTitle("Products")
